@@ -2,7 +2,64 @@
     <head>
 
     </head>
-    <body>
+    <body onload="refresh_table()">
+    
+    <script>
+
+        var data =[
+            { fname: "Keval", lname: "Motivaras", job: "Software Engineer", salary:"1000" },
+            { fname: "Jagravi", lname: "Patel", job: "Data Analysit", salary:"2000"  },
+            { fname: "Harpreet", lname: "Udehyan", job: "Business Analyst", salary:"1500"  },
+            { fname: "Eduardo", lname: "Patel", job: "Data Analysit", salary:"2000"  }
+        ];
+        
+        function create_row(f,l,j,s,index){
+            var row = ""
+            row += "<tr id='" + index + "'>\n"
+            row += "<td onclick='remove_person(" + index + ")'><button>Delete</button></td>\n"
+            row += "<td>" + f + "</td>\n"
+            row += "<td>" + l + "</td>\n"
+            row += "<td>" + j + "</td>\n"
+            row += "<td>" + s + "</td>\n"
+            row += "</tr>"
+            return row
+        } 
+
+        function refresh_table(){
+            var code_snippet =""
+            for(var index in data)
+                code_snippet += create_row(data[index].fname,data[index].lname,data[index].job,data[index].salary, index)
+
+            var table = document.querySelector('#my_table')
+            table.innerHTML = code_snippet
+        }
+
+        function remove_person(index){
+            data.splice(index, 1)
+            refresh_table()
+        }
+
+        function onEnterUp(event){
+            if(event.code !== 'Enter') return;
+            var fn = document.getElementById("c1")
+            var ln = document.getElementById("c2")
+            var jobs = document.getElementById("c3")
+            var sal = document.getElementById("c4")
+            var element={};
+            element.fname=fn.value;
+            element.lname=ln.value;
+            element.job=jobs.value;
+            element.salary=sal.value;
+
+            data.push(element);
+            fn.value = ""
+            ln.value =""
+            jobs.value = ""
+            sal.value =""
+            refresh_table()
+        }
+
+    </script>
     <a href="index.html"> Go to Home</a>
     <table>
         <caption>Dynamic Table</caption>
@@ -13,14 +70,14 @@
             <th>Job</th>
             <th>Salary</th>
         </thead>
-        <tbody id=''></tbody>
+        <tbody id='my_table'></tbody>
         <tfoot>
-            <tr onkeyup="">
+            <tr onkeyup="onEnterUp(event)">
                 <td></td>
-                <td><input name="" id="" type="text"></td>
-                <td><input name="" id="" type="text"></td>
-                <td><input name="" id="" type="text"></td>
-                <td><input name="" id="" type="text"></td>
+                <td><input name="c1" id="c1" type="text"></td>
+                <td><input name="c2" id="c2" type="text"></td>
+                <td><input name="c3" id="c3" type="text"></td>
+                <td><input name="c4" id="c4" type="text"></td>
            </tr>
         </tfoot>
     </table>
