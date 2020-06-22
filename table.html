@@ -15,8 +15,8 @@
         
         function create_row(i,f,l,j,s,index){
             var row = ""
-            row += "<tr id='" + index + "'>\n"
-            row += "<td onclick='remove_person(" + index + ")'><button>Delete</button></td>\n"
+            row += "<tr class='w1' id='" + index + "'>\n"
+            row += "<td onclick='remove_person(" + index + ")'><button style='font-size: 25px; color: darkred''>Delete</button></td>\n"
             row += "<td>" + "<img src='" + i + "' height=100px width=100px>" + "</td>\n"
             row += "<td>" + f + "</td>\n"
             row += "<td>" + l + "</td>\n"

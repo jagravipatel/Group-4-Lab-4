@@ -1,13 +1,13 @@
 h1   { 
     text-align: center;
     color:rgb(50, 47, 255);
-    font-style: oblique;
+    font-style: italic;
     background-color:rgb(112, 216, 138);
     font-family: Georgia, 'Times New Roman', Times, serif;
     border: darkred 1px solid;
 } 
 h2  { 
-    color: darkgreen;
+    color: rgb(0, 32, 136);
     font-size: 33px;
     font-style: bold;
 }
@@ -55,4 +55,42 @@ input {
 .outline2 {
     font-size: 18px;
     
+}
+
+body {
+    background-color: #dceeff;
+}
+
+a {
+    color: purple; 
+}
+a:hover {
+    color: blue; 
+}
+
+a:active {
+    color: red;
+  }
+
+  .q1 {
+    background-color: rgb(255, 239, 239)
+  }
+  .q2 {
+    background-color: rgb(231, 231, 255)
+  }
+  .q3 {
+    background-color: rgb(241, 255, 241)
+  }
+
+ caption {
+     font-size: 50px;
+ }
+
+ thead {
+  	font-family: Baskerville Old Face;
+  	font-size: 25px;
+}
+
+.w1 {
+    font-size: 25px;
 }
