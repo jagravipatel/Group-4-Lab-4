@@ -1,22 +1,23 @@
 <html>
     <head>
-
+        <link rel="spreedsheet" type="text/css" href="style.css" >
     </head>
     <body onload="refresh_table()">
     
     <script>
 
         var data =[
-            { fname: "Keval", lname: "Motivaras", job: "Software Engineer", salary:"1000" },
-            { fname: "Jagravi", lname: "Patel", job: "Data Analysit", salary:"2000"  },
-            { fname: "Harpreet", lname: "Udehyan", job: "Business Analyst", salary:"1500"  },
-            { fname: "Eduardo", lname: "Patel", job: "Data Analysit", salary:"2000"  }
+            { image: "https://image.flaticon.com/icons/svg/2395/2395887.svg", fname: "Keval", lname: "Motivaras", job: "Software Engineer", salary:"1000" },
+            { image: "https://image.flaticon.com/icons/svg/2395/2395887.svg", fname: "Jagravi", lname: "Patel", job: "Data Analysit", salary:"2000"  },
+            { image: "https://image.flaticon.com/icons/svg/2395/2395887.svg", fname: "Harpreet", lname: "Udehyan", job: "Business Analyst", salary:"1500"  },
+            { image: "https://image.flaticon.com/icons/svg/2395/2395887.svg", fname: "Eduardo", lname: "Reis", job: "Instructor", salary:"3000"  }
         ];
         
-        function create_row(f,l,j,s,index){
+        function create_row(i,f,l,j,s,index){
             var row = ""
             row += "<tr id='" + index + "'>\n"
             row += "<td onclick='remove_person(" + index + ")'><button>Delete</button></td>\n"
+            row += "<td>" + "<img src='" + i + "'>" + "</td>\n"
             row += "<td>" + f + "</td>\n"
             row += "<td>" + l + "</td>\n"
             row += "<td>" + j + "</td>\n"
@@ -28,7 +29,7 @@
         function refresh_table(){
             var code_snippet =""
             for(var index in data)
-                code_snippet += create_row(data[index].fname,data[index].lname,data[index].job,data[index].salary, index)
+                code_snippet += create_row(data[index].image,data[index].fname,data[index].lname,data[index].job,data[index].salary, index)
 
             var table = document.querySelector('#my_table')
             table.innerHTML = code_snippet
@@ -41,21 +42,24 @@
 
         function onEnterUp(event){
             if(event.code !== 'Enter') return;
+            var im= document.getElementById("img")
             var fn = document.getElementById("c1")
             var ln = document.getElementById("c2")
             var jobs = document.getElementById("c3")
             var sal = document.getElementById("c4")
             var element={};
+            element.image=im.value;
             element.fname=fn.value;
             element.lname=ln.value;
             element.job=jobs.value;
             element.salary=sal.value;
 
             data.push(element);
+            im.value = ""
             fn.value = ""
-            ln.value =""
+            ln.value = ""
             jobs.value = ""
-            sal.value =""
+            sal.value = ""
             refresh_table()
         }
 
@@ -65,6 +69,7 @@
         <caption>Dynamic Table</caption>
         <thead>
             <th></th>
+            <th>Photo</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Job</th>
@@ -74,6 +79,7 @@
         <tfoot>
             <tr onkeyup="onEnterUp(event)">
                 <td></td>
+                <td><input name="img" id="img" type="text"></td>
                 <td><input name="c1" id="c1" type="text"></td>
                 <td><input name="c2" id="c2" type="text"></td>
                 <td><input name="c3" id="c3" type="text"></td>
