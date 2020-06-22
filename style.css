@@ -1,0 +1,21 @@
+h1   { 
+    text-align: center;
+    color:greenyellow;
+    font-style: oblique;
+    background-color:palevioletred;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: darkred 1px solid;
+} 
+h2  { 
+    color: darkgreen;
+    font-size: 33px;
+    font-style: bold;
+}
+h3  { 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: plum;
+
+}
+#topic {
+    font-size: xx-large;
+}
