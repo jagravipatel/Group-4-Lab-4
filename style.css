@@ -19,7 +19,11 @@ h3  {
 #topic {
     font-size: xx-large;
 }
-#t11 {
+.subtopic {
     font-size: 25px;
     color: darkslateblue;
+}
+p {
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
